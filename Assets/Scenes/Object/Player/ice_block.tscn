@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://crpp2lbv6dsoi"]
+
+[ext_resource type="Script" uid="uid://dajbwnp4kjvtj" path="res://Assets/Scenes/Object/Player/ice_block.gd" id="1_3ya7j"]
+[ext_resource type="Texture2D" uid="uid://c3pb3rl1fopda" path="res://Assets/Image/Enemy/Enemy.png" id="2_b5c21"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0cyvq"]
+atlas = ExtResource("2_b5c21")
+region = Rect2(549, 384, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2in7v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0cyvq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i4ios"]
+size = Vector2(24, 24)
+
+[node name="IceBlock" type="CharacterBody2D"]
+texture_filter = 1
+script = ExtResource("1_3ya7j")
+
+[node name="BlockSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -3)
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_2in7v")
+
+[node name="EnemySprite" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.741176, 1, 1, 1)
+position = Vector2(-1.19209e-07, -3)
+rotation = 0.340339
+speed_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_i4ios")

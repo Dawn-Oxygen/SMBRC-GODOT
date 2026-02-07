@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://ds3u6vfepdygf"]
+
+[ext_resource type="PackedScene" uid="uid://debtaix1wqmxs" path="res://Assets/Scenes/Object/Enemy/Enemy.tscn" id="1_lqt1w"]
+[ext_resource type="Script" uid="uid://b20pdaqu2b8tx" path="res://Spiny.gd" id="2_ga7va"]
+[ext_resource type="SpriteFrames" uid="uid://dprov2aw32m05" path="res://Assets/Scenes/Object/Enemy/spiny.tres" id="3_bluct"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_elkut"]
+size = Vector2(14, 9.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cv0st"]
+size = Vector2(14, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ivje"]
+size = Vector2(14, 11)
+
+[node name="Spiny" instance=ExtResource("1_lqt1w")]
+script = ExtResource("2_ga7va")
+death_sprite_frames = ExtResource("3_bluct")
+
+[node name="Sprite" parent="." index="0"]
+sprite_frames = ExtResource("3_bluct")
+autoplay = "default"
+frame_progress = 0.663327
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, 0.875)
+shape = SubResource("RectangleShape2D_elkut")
+
+[node name="CollisionShape2D" parent="OtherHurtBox" index="0"]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_cv0st")
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_0ivje")
+
+[connection signal="area_entered" from="OtherHurtBox" to="." method="_on_other_hurt_box_area_entered"]

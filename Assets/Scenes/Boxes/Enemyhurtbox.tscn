@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bouh6ls7rt5vl"]
+
+[ext_resource type="PackedScene" uid="uid://lgrpd2eb32ud" path="res://Assets/Scenes/Boxes/Hurtbox.tscn" id="1"]
+
+[node name="Enemyhurtbox" instance=ExtResource("1")]
+collision_layer = 32

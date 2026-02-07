@@ -1,0 +1,156 @@
+[gd_scene load_steps=19 format=3 uid="uid://cjkgjoflah4il"]
+
+[ext_resource type="Texture2D" uid="uid://dtbjmvsx0qnwr" path="res://Assets/Image/Map/MZ_AI0FUODNNK%J1T4XAMWP.png" id="1_4u8cb"]
+[ext_resource type="Script" uid="uid://dkswkjpmyeu5h" path="res://Assets/Scenes/Object/Flag/level_flag.gd" id="1_cf53r"]
+[ext_resource type="Texture2D" uid="uid://cbjq1psi0y4h1" path="res://Assets/Image/Map/MAP.png" id="2_ikkj6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fvsls"]
+atlas = ExtResource("2_ikkj6")
+region = Rect2(749, 452, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_56d37"]
+atlas = ExtResource("2_ikkj6")
+region = Rect2(749, 469, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3ioc"]
+atlas = ExtResource("2_ikkj6")
+region = Rect2(749, 486, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x8hib"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fvsls")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_56d37")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x3ioc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t48q3"]
+atlas = ExtResource("2_ikkj6")
+region = Rect2(783, 452, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sfa70"]
+atlas = ExtResource("2_ikkj6")
+region = Rect2(783, 469, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7jyt4"]
+atlas = ExtResource("2_ikkj6")
+region = Rect2(783, 486, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k6xyt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t48q3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sfa70")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7jyt4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_en1q7"]
+atlas = ExtResource("1_4u8cb")
+region = Rect2(32, 864, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bjvtm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_en1q7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_13vvi"]
+size = Vector2(14, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jjvor"]
+atlas = ExtResource("2_ikkj6")
+region = Rect2(766, 648, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fxcrv"]
+atlas = ExtResource("2_ikkj6")
+region = Rect2(766, 504, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xpm32"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jjvor")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fxcrv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_84svf"]
+size = Vector2(2, 159)
+
+[node name="LevelFlag" type="Node2D"]
+script = ExtResource("1_cf53r")
+
+[node name="BowserFlag" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(8, -144)
+sprite_frames = SubResource("SpriteFrames_x8hib")
+autoplay = "default"
+frame_progress = 0.176538
+
+[node name="PlayerFlag" type="AnimatedSprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(8, -144)
+sprite_frames = SubResource("SpriteFrames_k6xyt")
+autoplay = "default"
+frame_progress = 0.430725
+
+[node name="Bottom" type="CharacterBody2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Bottom"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_bjvtm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom"]
+position = Vector2(0, 2.5)
+shape = SubResource("RectangleShape2D_13vvi")
+
+[node name="FlagPole" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="FlagPole"]
+texture_filter = 1
+position = Vector2(0, -78.6667)
+scale = Vector2(1, 9.16667)
+sprite_frames = SubResource("SpriteFrames_xpm32")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="FlagPole"]
+texture_filter = 1
+position = Vector2(0, -160)
+sprite_frames = SubResource("SpriteFrames_xpm32")
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FlagPole"]
+position = Vector2(0, -72)
+shape = SubResource("RectangleShape2D_84svf")
+
+[connection signal="body_entered" from="FlagPole" to="." method="_on_flag_pole_body_entered"]

@@ -1,0 +1,89 @@
+[gd_scene load_steps=14 format=3 uid="uid://p3q6bhvnwk85"]
+
+[ext_resource type="PackedScene" uid="uid://debtaix1wqmxs" path="res://Assets/Scenes/Object/Enemy/Enemy.tscn" id="1_oqgo6"]
+[ext_resource type="Texture2D" uid="uid://c3pb3rl1fopda" path="res://Assets/Image/Enemy/Enemy.png" id="2_h1tbo"]
+[ext_resource type="Script" uid="uid://bd7adfyjy0y3j" path="res://Assets/Scenes/Object/Enemy/thwomp.gd" id="2_ybhvs"]
+[ext_resource type="AudioStream" uid="uid://wg538u2hyc8v" path="res://Assets/Audio/smbdx_bullet.wav" id="4_5lnr4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ki0lv"]
+atlas = ExtResource("2_h1tbo")
+region = Rect2(460, 199, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_efh34"]
+atlas = ExtResource("2_h1tbo")
+region = Rect2(489, 199, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r0r02"]
+atlas = ExtResource("2_h1tbo")
+region = Rect2(514, 199, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5wnuc"]
+atlas = ExtResource("2_h1tbo")
+region = Rect2(543, 199, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lo104"]
+atlas = ExtResource("2_h1tbo")
+region = Rect2(567, 199, 24, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7fan7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ki0lv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_efh34")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r0r02")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5wnuc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lo104")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3vbj2"]
+size = Vector2(22, 29)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kbs6q"]
+size = Vector2(22.5, 31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8elsi"]
+size = Vector2(48, 141)
+
+[node name="Thwomp" instance=ExtResource("1_oqgo6")]
+collision_layer = 9
+script = ExtResource("2_ybhvs")
+falling_speed = 50
+rising_speed = 1
+
+[node name="Sprite" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_7fan7")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_3vbj2")
+one_way_collision = true
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+position = Vector2(-0.25, -0.5)
+shape = SubResource("RectangleShape2D_kbs6q")
+
+[node name="CheckPlayer" type="Area2D" parent="." index="6"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CheckPlayer" index="0"]
+position = Vector2(0, 72.5)
+shape = SubResource("RectangleShape2D_8elsi")
+
+[node name="HitAudio" type="AudioStreamPlayer2D" parent="." index="8"]
+stream = ExtResource("4_5lnr4")
+
+[connection signal="body_entered" from="CheckPlayer" to="." method="_on_check_player_body_entered"]

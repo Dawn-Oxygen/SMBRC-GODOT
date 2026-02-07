@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://dgtsjti0358vs"]
+
+[ext_resource type="Texture2D" uid="uid://ctwfqb3cjsmad" path="res://Assets/Image/UI/Font.png" id="1_hf6h0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lpln4"]
+atlas = ExtResource("1_hf6h0")
+region = Rect2(16, 48, 15, 16)
+
+[sub_resource type="Animation" id="7"]
+length = 0.001
+
+[sub_resource type="Animation" id="8"]
+resource_name = "got"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1orbp"]
+_data = {
+&"RESET": SubResource("7"),
+&"got": SubResource("8")
+}
+
+[node name="GreenStarHUD" type="TextureRect"]
+texture_filter = 1
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 9.0
+texture = SubResource("AtlasTexture_lpln4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_1orbp")
+}

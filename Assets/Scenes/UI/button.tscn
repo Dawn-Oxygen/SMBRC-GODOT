@@ -1,0 +1,73 @@
+[gd_scene load_steps=8 format=3 uid="uid://bcfi3kjjcmry6"]
+
+[ext_resource type="FontFile" uid="uid://cqrn2gol1flwm" path="res://Fonts/方正综艺简体(1).ttf" id="1_wmbdy"]
+[ext_resource type="StyleBox" uid="uid://crsrml2gpga5a" path="res://Assets/Image/UI/button_nomal.tres" id="2_bjdn1"]
+[ext_resource type="StyleBox" uid="uid://dheb4yrckf0lj" path="res://Assets/Image/UI/button_press.tres" id="3_d3xo7"]
+[ext_resource type="Script" uid="uid://bb3ud4u2ay4du" path="res://Assets/Scenes/UI/button.gd" id="3_mg68u"]
+
+[sub_resource type="Animation" id="Animation_isocs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_1khxj"]
+resource_name = "show"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x85s7"]
+_data = {
+&"RESET": SubResource("Animation_isocs"),
+&"show": SubResource("Animation_1khxj")
+}
+
+[node name="Button" type="Button"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -40.0
+offset_top = -24.0
+offset_right = 281.0
+offset_bottom = 136.0
+scale = Vector2(0.3, 0.3)
+pivot_offset = Vector2(-12, 0)
+focus_mode = 0
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.933418, 0.789702, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_wmbdy")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/disabled = ExtResource("3_d3xo7")
+theme_override_styles/hover = ExtResource("3_d3xo7")
+theme_override_styles/pressed = ExtResource("3_d3xo7")
+theme_override_styles/normal = ExtResource("2_bjdn1")
+script = ExtResource("3_mg68u")
+once_press = false
+press_color = Color(0.949896, 0, 0.352489, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_x85s7")
+}
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

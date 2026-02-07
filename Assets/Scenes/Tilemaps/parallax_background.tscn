@@ -1,0 +1,127 @@
+[gd_scene load_steps=8 format=3 uid="uid://8fdnvse6wfe7"]
+
+[ext_resource type="Texture2D" uid="uid://l4as7y1k3wra" path="res://Assets/Image/BackGround/Ground.png" id="1_ixd0y"]
+[ext_resource type="Material" uid="uid://dxbcengkaduuf" path="res://Assets/Scenes/MapObject/backfiler.tres" id="3_cyyrl"]
+
+[sub_resource type="Resource" id="Resource_gqwxl"]
+metadata/__load_path__ = "res://Assets/Image/BackGround/Clouds/Clouds.png"
+
+[sub_resource type="Animation" id="Animation_vfopy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_m2k0p"]
+resource_name = "float"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-5120, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hr6pk"]
+_data = {
+&"RESET": SubResource("Animation_vfopy"),
+&"float": SubResource("Animation_m2k0p")
+}
+
+[sub_resource type="Resource" id="Resource_gfgnu"]
+metadata/__load_path__ = "res://Assets/Image/BackGround/Clouds/Clouds.png"
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -5072.0
+offset_top = -640.0
+offset_right = 7576.0
+offset_bottom = 832.0
+color = Color(0.482353, 0.572549, 1, 1)
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+position = Vector2(-16, 140)
+motion_scale = Vector2(0.033, 0.099)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+modulate = Color(1, 1, 1, 0.756863)
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(144, 12)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("1_ixd0y")
+region_enabled = true
+region_rect = Rect2(0, 0, 50000, 512)
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxLayer"]
+modulate = Color(1, 1, 1, 0.478431)
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(0, -228)
+texture = SubResource("Resource_gqwxl")
+region_enabled = true
+region_rect = Rect2(0, 0, 50000, 512)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ParallaxLayer/Sprite2D2"]
+root_node = NodePath("../../Sprite2D2")
+libraries = {
+"": SubResource("AnimationLibrary_hr6pk")
+}
+autoplay = "float"
+speed_scale = 0.05
+
+[node name="ColorRect" type="ColorRect" parent="ParallaxLayer/Sprite2D2"]
+visible = false
+material = ExtResource("3_cyyrl")
+offset_left = -6380.0
+offset_top = -540.0
+offset_right = 6268.0
+offset_bottom = 932.0
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+position = Vector2(-16, 140)
+motion_scale = Vector2(0.067, 0.101)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer2"]
+texture_filter = 1
+texture_repeat = 2
+scale = Vector2(0.95, 0.95)
+texture = ExtResource("1_ixd0y")
+region_enabled = true
+region_rect = Rect2(0, 0, 50000, 512)
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="."]
+position = Vector2(-16, 140)
+motion_scale = Vector2(0.1, 0.075)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer5"]
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(-64, -108)
+texture = SubResource("Resource_gfgnu")
+region_enabled = true
+region_rect = Rect2(0, 0, 50000, 512)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ParallaxLayer5/Sprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_hr6pk")
+}
+autoplay = "float"
+speed_scale = 0.05

@@ -1,0 +1,68 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://dqli5evs3b8i1"]
+
+[ext_resource type="Texture2D" uid="uid://bperuirh4nh60" path="res://Assets/Image/PLayer/Player.png" id="1_e5rec"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fhknh"]
+atlas = ExtResource("1_e5rec")
+region = Rect2(69, 597, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qbd7k"]
+atlas = ExtResource("1_e5rec")
+region = Rect2(86, 597, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_htehe"]
+atlas = ExtResource("1_e5rec")
+region = Rect2(103, 597, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2miu2"]
+atlas = ExtResource("1_e5rec")
+region = Rect2(120, 597, 16, 16)
+
+[sub_resource type="AtlasTexture" id="3"]
+atlas = ExtResource("1_e5rec")
+region = Rect2(1, 597, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nl32u"]
+atlas = ExtResource("1_e5rec")
+region = Rect2(26, 656, 16, 16)
+
+[resource]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"Cloud",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fhknh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qbd7k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_htehe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2miu2")
+}],
+"loop": true,
+"name": &"Fire",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("3")
+}],
+"loop": true,
+"name": &"Super",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nl32u")
+}],
+"loop": true,
+"name": &"我超 冰",
+"speed": 5.0
+}]

@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://iy4s7tln1pm3"]
+
+[ext_resource type="Script" uid="uid://cewldr54yypki" path="res://Assets/Scenes/Object/OnOffBlock/ONBlock.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://deudv16bbx1s0" path="res://Assets/Image/Map/Sprite-0002.png" id="2"]
+
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(16, 16)
+
+[sub_resource type="AtlasTexture" id="2"]
+atlas = ExtResource("2")
+region = Rect2(35, 397, 16, 16)
+
+[sub_resource type="AtlasTexture" id="3"]
+atlas = ExtResource("2")
+region = Rect2(35, 380, 16, 16)
+
+[sub_resource type="SpriteFrames" id="4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("2")
+}],
+"loop": true,
+"name": &"OFF",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("3")
+}],
+"loop": true,
+"name": &"ON",
+"speed": 5.0
+}]
+
+[node name="ONBlock" type="StaticBody2D"]
+texture_filter = 1
+script = ExtResource("1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("1")
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("4")
+animation = &"OFF"

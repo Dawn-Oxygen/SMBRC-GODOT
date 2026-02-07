@@ -1,0 +1,235 @@
+[gd_scene load_steps=23 format=3 uid="uid://dg5fvtgghd2f6"]
+
+[ext_resource type="Texture2D" uid="uid://bt5yaeggqp02e" path="res://Assets/Image/Map/coin.png" id="1"]
+[ext_resource type="Script" uid="uid://dc1b5oldgk4ce" path="res://Assets/Scenes/Object/Coin/Coin.gd" id="2"]
+[ext_resource type="AudioStream" uid="uid://csja6oc3m8gry" path="res://Assets/Audio/smbdx_coin.wav" id="3"]
+[ext_resource type="Texture2D" uid="uid://cbjq1psi0y4h1" path="res://Assets/Image/Map/MAP.png" id="3_7d6u6"]
+[ext_resource type="Texture2D" uid="uid://bonti0k7p7iex" path="res://Assets/Image/light/light-transparent-png-1.png" id="4_edfp8"]
+
+[sub_resource type="AtlasTexture" id="2"]
+atlas = ExtResource("1")
+region = Rect2(0, 0, 10, 14)
+
+[sub_resource type="AtlasTexture" id="3"]
+atlas = ExtResource("1")
+region = Rect2(10, 0, 10, 14)
+
+[sub_resource type="AtlasTexture" id="4"]
+atlas = ExtResource("1")
+region = Rect2(20, 0, 10, 14)
+
+[sub_resource type="AtlasTexture" id="5"]
+atlas = ExtResource("1")
+region = Rect2(30, 0, 10, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tmlrm"]
+atlas = ExtResource("3_7d6u6")
+region = Rect2(273, 35, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q0r3c"]
+atlas = ExtResource("3_7d6u6")
+region = Rect2(290, 35, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ymu7e"]
+atlas = ExtResource("3_7d6u6")
+region = Rect2(307, 35, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1d1na"]
+atlas = ExtResource("3_7d6u6")
+region = Rect2(324, 35, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_co83p"]
+atlas = ExtResource("3_7d6u6")
+region = Rect2(1, 172, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s8tgp"]
+atlas = ExtResource("3_7d6u6")
+region = Rect2(34, 172, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cncaw"]
+atlas = ExtResource("3_7d6u6")
+region = Rect2(65, 172, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0n02c"]
+atlas = ExtResource("3_7d6u6")
+region = Rect2(99, 172, 32, 32)
+
+[sub_resource type="SpriteFrames" id="6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("2")
+}, {
+"duration": 1.0,
+"texture": SubResource("3")
+}, {
+"duration": 1.0,
+"texture": SubResource("4")
+}, {
+"duration": 1.0,
+"texture": SubResource("5")
+}],
+"loop": true,
+"name": &"coin",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tmlrm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q0r3c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ymu7e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1d1na")
+}],
+"loop": true,
+"name": &"key_coin",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_co83p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s8tgp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cncaw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0n02c")
+}],
+"loop": true,
+"name": &"ten_coin",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hkgx4"]
+size = Vector2(10, 14)
+
+[sub_resource type="Animation" id="Animation_kx4og"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite:speed_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_0a5vk"]
+resource_name = "carry"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(0.5, 2, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -23), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite:speed_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2hqcr"]
+_data = {
+&"RESET": SubResource("Animation_kx4og"),
+&"carry": SubResource("Animation_0a5vk")
+}
+
+[node name="Coin" type="Area2D"]
+texture_filter = 1
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("2")
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("6")
+animation = &"coin"
+autoplay = "coin"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_hkgx4")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3")
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = -5.0
+offset_top = -7.0
+offset_right = 5.0
+offset_bottom = 7.0
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, 1.13687e-13)
+scale = Vector2(0.072, 0.104)
+enabled = false
+energy = 1.64
+texture = ExtResource("4_edfp8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_2hqcr")
+}
+
+[connection signal="body_entered" from="." to="." method="_on_Coin_body_entered"]
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]

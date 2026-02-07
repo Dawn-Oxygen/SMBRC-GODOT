@@ -1,0 +1,65 @@
+[gd_scene load_steps=11 format=3 uid="uid://b1jhi1ycboqq7"]
+
+[ext_resource type="PackedScene" uid="uid://cgbm48s5spa7y" path="res://Assets/Scenes/Object/Sorce/block.tscn" id="1_jndc5"]
+[ext_resource type="Texture2D" uid="uid://verhwlu2gkv1" path="res://Assets/Image/Map/Tilesets.png" id="2_5brvv"]
+[ext_resource type="Script" uid="uid://d3765yds6scsq" path="res://Assets/Scenes/Object/LuckyBlock/lucky_block.gd" id="2_p41le"]
+[ext_resource type="PackedScene" uid="uid://ew3vxboaio01" path="res://Assets/Scenes/Object/Coin/HitCoin.tscn" id="3_nbwid"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_635pc"]
+atlas = ExtResource("2_5brvv")
+region = Rect2(432, 480, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5nl6k"]
+atlas = ExtResource("2_5brvv")
+region = Rect2(448, 480, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c4bm1"]
+atlas = ExtResource("2_5brvv")
+region = Rect2(464, 480, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vjyq8"]
+atlas = ExtResource("2_5brvv")
+region = Rect2(480, 480, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dgtfy"]
+atlas = ExtResource("2_5brvv")
+region = Rect2(496, 480, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wjedh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_635pc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5nl6k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c4bm1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vjyq8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dgtfy")
+}],
+"loop": true,
+"name": &"normal",
+"speed": 5.0
+}]
+
+[node name="LuckyBlock" instance=ExtResource("1_jndc5")]
+script = ExtResource("2_p41le")
+thing = ExtResource("3_nbwid")
+prop_state = 2
+number = 1
+number_state = 0
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_wjedh")
+frame_progress = 0.327328

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwltoeuvs6pmq"]
+
+[ext_resource type="Texture2D" uid="uid://cl0a8io6xioo6" path="res://Assets/Image/light/denglong.png" id="1_16ivh"]
+[ext_resource type="Texture2D" uid="uid://bonti0k7p7iex" path="res://Assets/Image/light/light-transparent-png-1.png" id="2_vwc8t"]
+
+[node name="Denglong" type="Sprite2D"]
+texture_filter = 1
+position = Vector2(336, 464)
+texture = ExtResource("1_16ivh")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(1, 0.368627, 0.301961, 1)
+energy = 7.62
+shadow_enabled = true
+shadow_item_cull_mask = 3
+texture = ExtResource("2_vwc8t")
+texture_scale = 0.5

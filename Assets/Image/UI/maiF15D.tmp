@@ -1,0 +1,48 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1byllvrkvf6k"]
+
+[ext_resource type="PackedScene" uid="uid://bcfi3kjjcmry6" path="res://Assets/Scenes/UI/button.tscn" id="1_na05u"]
+
+[node name="MainMenu" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="Button3" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 190.0
+offset_top = 77.0
+offset_right = 354.0
+offset_bottom = 221.0
+
+[node name="Button" parent="Control" instance=ExtResource("1_na05u")]
+layout_mode = 0
+anchors_preset = 0
+offset_left = 423.0
+offset_top = 247.0
+offset_right = 752.0
+offset_bottom = 422.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Button2" parent="Control" instance=ExtResource("1_na05u")]
+layout_mode = 0
+anchors_preset = 0
+offset_left = 424.0
+offset_top = 304.0
+offset_right = 753.0
+offset_bottom = 479.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Button4" parent="Control" instance=ExtResource("1_na05u")]
+layout_mode = 0
+anchors_preset = 0
+offset_left = 424.0
+offset_top = 360.0
+offset_right = 753.0
+offset_bottom = 535.0
+grow_horizontal = 1
+grow_vertical = 1

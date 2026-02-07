@@ -1,0 +1,8 @@
+res://Assets/Image/UI/main_menu.tscn
+res://Assets/Scenes/Object/Sorce/Fragment.tres
+res://Assets/Scenes/Object/Enemy/Goomba.tres
+res://Assets/Scenes/Game/Levels/World1/1-1.gdshader
+res://Assets/Scenes/UI/button.gd
+res://Assets/Scenes/Object/Player/FireBall.tres
+res://Assets/Scenes/Tilemaps/TileMap.tres
+res://Assets/Character/Mario/Mario.tres

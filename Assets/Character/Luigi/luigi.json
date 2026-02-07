@@ -1,0 +1,26 @@
+{
+	"character_name":"Luigi",
+	
+	"file":{
+		"sprite_frames":"res://Assets/Character/Luigi/Luigi.tres"
+	},
+	
+	"script_variable":{
+		"MAX_GRAVITY": 300, 
+	
+		"walk_speed": 70,
+		"run_speed" : 200,
+		
+		"jump_force": 225,
+		"spin_jump_force": 150,
+		
+		"run_to_walk_delta": 13,
+		"stay_to_walk_delta": 5,
+		"to_run_delta": 3.5,
+		
+		"floor_move_acc": 4.5,
+		"sky_move_acc": 7,
+		"sky_stay_acc": 0.35,
+		"brake_acc": 15
+	},
+}

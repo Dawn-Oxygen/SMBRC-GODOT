@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://cqr0cc3r7epce"]
+
+[ext_resource type="Texture2D" uid="uid://vsgp86i3t0pt" path="res://Assets/Image/WorldMap/playershadow.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://b8w6n6j4ylqel" path="res://Assets/Image/WorldMap/mapthings.png" id="2"]
+
+[sub_resource type="AtlasTexture" id="1"]
+atlas = ExtResource("2")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="3"]
+radius = 8.98223
+height = 34.023
+
+[node name="hill" type="StaticBody2D"]
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("2")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.643137)
+show_behind_parent = true
+texture_filter = 1
+position = Vector2(-2.27374e-13, 2)
+scale = Vector2(3, 2.4375)
+texture = ExtResource("1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 9)
+rotation = 1.57184
+shape = SubResource("3")

@@ -1,0 +1,58 @@
+[gd_scene load_steps=10 format=3 uid="uid://dc6eefnle6t21"]
+
+[ext_resource type="PackedScene" uid="uid://cgbm48s5spa7y" path="res://Assets/Scenes/Object/Sorce/block.tscn" id="1_7gecx"]
+[ext_resource type="Script" uid="uid://dqvqe2twd7opi" path="res://OnOffSwitch.gd" id="2_p806w"]
+[ext_resource type="PackedScene" uid="uid://ew3vxboaio01" path="res://Assets/Scenes/Object/Coin/HitCoin.tscn" id="3_1a3oe"]
+[ext_resource type="Texture2D" uid="uid://verhwlu2gkv1" path="res://Assets/Image/Map/Tilesets.png" id="3_cej0h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0gv7a"]
+atlas = ExtResource("3_cej0h")
+region = Rect2(432, 640, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ficgk"]
+atlas = ExtResource("3_cej0h")
+region = Rect2(448, 640, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cistb"]
+atlas = ExtResource("3_cej0h")
+region = Rect2(464, 640, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u4q3v"]
+atlas = ExtResource("3_cej0h")
+region = Rect2(480, 640, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_441r1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0gv7a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ficgk")
+}],
+"loop": true,
+"name": &"off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cistb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u4q3v")
+}],
+"loop": true,
+"name": &"on",
+"speed": 5.0
+}]
+
+[node name="OnOffSwitch" instance=ExtResource("1_7gecx")]
+script = ExtResource("2_p806w")
+thing = ExtResource("3_1a3oe")
+prop_state = 2
+number = 1
+number_state = 1
+
+[node name="AnimatedSprite2D" parent="." index="3"]
+sprite_frames = SubResource("SpriteFrames_441r1")
+animation = &"off"

@@ -1,0 +1,68 @@
+[gd_scene load_steps=9 format=3 uid="uid://b1jjiahugw25c"]
+
+[ext_resource type="Texture2D" uid="uid://cbjq1psi0y4h1" path="res://Assets/Image/Map/MAP.png" id="1"]
+[ext_resource type="Script" uid="uid://b316timps5txj" path="res://Assets/Scenes/Object/Enemy/FireBlock.gd" id="2"]
+
+[sub_resource type="AtlasTexture" id="1"]
+atlas = ExtResource("1")
+region = Rect2(239, 86, 16, 16)
+
+[sub_resource type="SpriteFrames" id="2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="3"]
+size = Vector2(15, 15)
+
+[sub_resource type="Animation" id="4"]
+length = 0.001
+
+[sub_resource type="Animation" id="5"]
+resource_name = "roll"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Balls:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 360.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q2umc"]
+_data = {
+&"RESET": SubResource("4"),
+&"roll": SubResource("5")
+}
+
+[node name="FireBlock" type="CharacterBody2D"]
+texture_filter = 1
+script = ExtResource("2")
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("3")
+
+[node name="Balls" type="Node2D" parent="."]
+rotation = 5.82293
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "roll"
+speed_scale = 0.2
+libraries = {
+"": SubResource("AnimationLibrary_q2umc")
+}

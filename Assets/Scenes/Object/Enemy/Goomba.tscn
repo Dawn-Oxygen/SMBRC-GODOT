@@ -1,0 +1,182 @@
+[gd_scene load_steps=17 format=3 uid="uid://c31osh4wh2i71"]
+
+[ext_resource type="PackedScene" uid="uid://debtaix1wqmxs" path="res://Assets/Scenes/Object/Enemy/Enemy.tscn" id="1"]
+[ext_resource type="SpriteFrames" uid="uid://bklfxy1eym58v" path="res://Assets/Scenes/Object/Enemy/Goomba.tres" id="2"]
+[ext_resource type="Script" uid="uid://dhxffhrgbb4cm" path="res://Assets/Scenes/Object/Enemy/Goomba.gd" id="3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jwh6k"]
+size = Vector2(14, 15)
+
+[sub_resource type="Animation" id="1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="5"]
+resource_name = "dead"
+
+[sub_resource type="Animation" id="9"]
+resource_name = "death"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+
+[sub_resource type="Animation" id="11"]
+resource_name = "hit"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(0.5, 0.5, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="2"]
+resource_name = "walk"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_otmji"]
+_data = {
+&"RESET": SubResource("1"),
+&"dead": SubResource("5"),
+&"death": SubResource("9"),
+&"hit": SubResource("11"),
+&"walk": SubResource("2")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f1hvi"]
+size = Vector2(14, 15)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d1gsd"]
+size = Vector2(16, 11)
+
+[sub_resource type="Animation" id="Animation_vy6ql"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_7pw26"]
+resource_name = "hit"
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.15),
+"transitions": PackedFloat32Array(0.5, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.5, 1.5), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_unbj4"]
+_data = {
+&"RESET": SubResource("Animation_vy6ql"),
+&"hit": SubResource("Animation_7pw26")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vnx3a"]
+size = Vector2(16, 5)
+
+[node name="Goomba" instance=ExtResource("1")]
+visibility_layer = 4
+texture_filter = 1
+platform_wall_layers = 9
+script = ExtResource("3")
+
+[node name="Sprite" parent="." index="0"]
+texture_filter = 1
+sprite_frames = ExtResource("2")
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_jwh6k")
+
+[node name="AnimationPlayer" parent="." index="2"]
+callback_mode_method = 1
+libraries = {
+"": SubResource("AnimationLibrary_otmji")
+}
+autoplay = "walk"
+
+[node name="CollisionShape2D" parent="OtherHurtBox" index="0"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_f1hvi")
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+position = Vector2(0, 2.5)
+shape = SubResource("RectangleShape2D_d1gsd")
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="." index="5"]
+libraries = {
+"": SubResource("AnimationLibrary_unbj4")
+}
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+position = Vector2(0, -5.5)
+shape = SubResource("RectangleShape2D_vnx3a")
+
+[connection signal="area_entered" from="OtherHurtBox" to="." method="_on_other_hurt_box_area_entered"]
+[connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]

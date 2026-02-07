@@ -1,0 +1,31 @@
+{
+	
+	"power_name":"Small",
+	
+	"player_variable":
+	{
+		"sprite_offset_x": 0,
+		"sprite_offset_y": -7,
+		"squat_sprite_offset_x": 0,
+		"squat_sprite_offset_y": -7,
+		"sprite_scale_x":1,
+		"sprite_scale_y":1,
+		
+		"coll_shape_size_x":10,
+		"coll_shape_size_y":14,
+		"coll_shape_size_x":10,
+		"coll_shape_size_y":9,
+		"coll_offset_x":0,
+		"coll_offset_y":-7,
+		
+		"squat_coll_offset_x":0,
+		"squat_coll_offset_y":-4.5,
+	}, 
+	"file":
+	{
+		"player_export_script" :"res://Assets/Character/Mario/Mario.tres",
+		"player_sprite_anim_string":"Small",
+		"power_porp_frames" : "res://Assets/PowerStates/PowerPropFrames.tres",
+		"power_porp_anim_string":"Super"
+	}
+}

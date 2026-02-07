@@ -1,0 +1,265 @@
+[gd_scene format=3 uid="uid://c1byllvrkvf6k"]
+
+[ext_resource type="PackedScene" uid="uid://bcfi3kjjcmry6" path="res://Assets/Scenes/UI/button.tscn" id="1_na05u"]
+[ext_resource type="Script" uid="uid://c5ko2lc70tuwm" path="res://Assets/Image/UI/Panal.gd" id="1_ta7x7"]
+[ext_resource type="Script" uid="uid://gakuh4ruanou" path="res://Assets/Image/UI/main_menu.gd" id="1_tbjak"]
+[ext_resource type="Texture2D" uid="uid://mdbeitci3nmp" path="res://Assets/Image/UI/new_atlas_texture.tres" id="2_qhbju"]
+[ext_resource type="Texture2D" uid="uid://0tdl57qrgdlk" path="res://logo.png" id="4_w7re4"]
+[ext_resource type="FontFile" uid="uid://c54q0gcmwicfy" path="res://Fonts/Super Mario Bros.NES.ttf" id="5_2jk2e"]
+[ext_resource type="Material" uid="uid://dxbcengkaduuf" path="res://Assets/Scenes/MapObject/backfiler.tres" id="6_qf1y2"]
+[ext_resource type="PackedScene" uid="uid://d1sj5m26q5x74" path="res://Assets/Scenes/UI/setting_menu.tscn" id="8_edgft"]
+[ext_resource type="FontFile" uid="uid://cqrn2gol1flwm" path="res://Fonts/方正综艺简体(1).ttf" id="9_twvfr"]
+
+[sub_resource type="Animation" id="Animation_v6ntw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(130, 434)]
+}
+
+[sub_resource type="Animation" id="Animation_uel51"]
+resource_name = "roll"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(130, 434), Vector2(130, 459.2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7xdlu"]
+_data = {
+&"RESET": SubResource("Animation_v6ntw"),
+&"roll": SubResource("Animation_uel51")
+}
+
+[node name="MainMenu" type="Node2D" unique_id=1331858152]
+script = ExtResource("1_tbjak")
+
+[node name="MenuBackGround" type="Node2D" parent="." unique_id=1508695600]
+position = Vector2(130, 434)
+script = ExtResource("1_ta7x7")
+
+[node name="Sprite2D" type="Sprite2D" parent="MenuBackGround" unique_id=769238092]
+position = Vector2(80, 54)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_qhbju")
+
+[node name="Sprite2D6" type="Sprite2D" parent="MenuBackGround" unique_id=695237350]
+position = Vector2(80, -51.2)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_qhbju")
+
+[node name="Sprite2D2" type="Sprite2D" parent="MenuBackGround" unique_id=1846586316]
+position = Vector2(80, 156.8)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_qhbju")
+
+[node name="Sprite2D3" type="Sprite2D" parent="MenuBackGround" unique_id=799149228]
+position = Vector2(80, 260.8)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_qhbju")
+
+[node name="Sprite2D4" type="Sprite2D" parent="MenuBackGround" unique_id=792947445]
+position = Vector2(80, 364.8)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_qhbju")
+
+[node name="Sprite2D5" type="Sprite2D" parent="MenuBackGround" unique_id=1418508303]
+position = Vector2(80, 468.8)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_qhbju")
+
+[node name="Sprite2D7" type="Sprite2D" parent="MenuBackGround" unique_id=1198410765]
+position = Vector2(80, -571)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_qhbju")
+
+[node name="Sprite2D8" type="Sprite2D" parent="MenuBackGround" unique_id=908914575]
+position = Vector2(80, -676.2)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_qhbju")
+
+[node name="Sprite2D9" type="Sprite2D" parent="MenuBackGround" unique_id=1813855459]
+position = Vector2(80, -468.2)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_qhbju")
+
+[node name="Sprite2D10" type="Sprite2D" parent="MenuBackGround" unique_id=797563941]
+position = Vector2(80, -364.2)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_qhbju")
+
+[node name="Sprite2D11" type="Sprite2D" parent="MenuBackGround" unique_id=743921958]
+position = Vector2(80, -260.2)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_qhbju")
+
+[node name="Sprite2D12" type="Sprite2D" parent="MenuBackGround" unique_id=526132877]
+position = Vector2(80, -156.2)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_qhbju")
+
+[node name="ColorRect" type="ColorRect" parent="MenuBackGround" unique_id=2119399618]
+offset_left = -939.0
+offset_top = -723.0
+offset_bottom = 528.0
+color = Color(0.121569, 0.121569, 0.121569, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MenuBackGround" unique_id=1554158396]
+deterministic = true
+libraries/ = SubResource("AnimationLibrary_7xdlu")
+
+[node name="Control" type="Control" parent="." unique_id=2053483428]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="Button" parent="Control" unique_id=1533953003 instance=ExtResource("1_na05u")]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 128.0
+offset_right = 716.0
+offset_bottom = 341.0
+text = "故事模式"
+
+[node name="Button2" parent="Control" unique_id=475355494 instance=ExtResource("1_na05u")]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 200.0
+offset_right = 716.0
+offset_bottom = 413.0
+text = "回味模式"
+
+[node name="Button3" parent="Control" unique_id=1298245152 instance=ExtResource("1_na05u")]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 272.0
+offset_right = 714.0
+offset_bottom = 485.0
+text = "联机游玩"
+
+[node name="Button4" parent="Control" unique_id=735585257 instance=ExtResource("1_na05u")]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 344.0
+offset_right = 714.0
+offset_bottom = 557.0
+text = "设置选项"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1659531131]
+position = Vector2(445, 252)
+zoom = Vector2(1.3, 1.3)
+
+[node name="Logo" type="Sprite2D" parent="." unique_id=7999496]
+position = Vector2(568, 112)
+scale = Vector2(1.4, 1.4)
+texture = ExtResource("4_w7re4")
+
+[node name="text" type="Control" parent="." unique_id=434074450]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="text" unique_id=204130004]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 184.0
+offset_right = 624.0
+offset_bottom = 207.0
+theme_override_fonts/font = ExtResource("5_2jk2e")
+theme_override_font_sizes/font_size = 8
+text = "EARTHWORK 2021"
+
+[node name="Label2" type="Label" parent="text" unique_id=1924851909]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 200.0
+offset_right = 624.0
+offset_bottom = 223.0
+theme_override_fonts/font = ExtResource("5_2jk2e")
+theme_override_font_sizes/font_size = 8
+text = "NINTENDO 1985--NOW"
+
+[node name="Filer" type="ColorRect" parent="." unique_id=511195582]
+visible = false
+material = ExtResource("6_qf1y2")
+offset_right = 888.0
+offset_bottom = 496.0
+
+[node name="BlackOut" type="ColorRect" parent="." unique_id=1298046266]
+visible = false
+offset_right = 912.0
+offset_bottom = 512.0
+color = Color(0, 0, 0, 0.419608)
+
+[node name="SettingMenu" parent="." unique_id=400568710 instance=ExtResource("8_edgft")]
+
+[node name="LevelPanel" type="Panel" parent="." unique_id=2063082857]
+visible = false
+offset_left = 128.0
+offset_top = 128.0
+offset_right = 840.0
+offset_bottom = 384.0
+
+[node name="Button" type="Button" parent="LevelPanel" unique_id=1579046260]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 168.0
+offset_bottom = 96.0
+theme_override_fonts/font = ExtResource("9_twvfr")
+text = "场景一"
+
+[node name="Button2" type="Button" parent="LevelPanel" unique_id=1918957187]
+layout_mode = 0
+offset_left = 176.0
+offset_top = 40.0
+offset_right = 304.0
+offset_bottom = 96.0
+theme_override_fonts/font = ExtResource("9_twvfr")
+text = "灯笼"
+
+[node name="Button3" type="Button" parent="LevelPanel" unique_id=1871836199]
+layout_mode = 0
+offset_left = 312.0
+offset_top = 40.0
+offset_right = 432.0
+offset_bottom = 96.0
+theme_override_fonts/font = ExtResource("9_twvfr")
+text = "鬼屋"
+
+[node name="Button4" type="Button" parent="LevelPanel" unique_id=1613371779]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 40.0
+offset_right = 576.0
+offset_bottom = 96.0
+theme_override_fonts/font = ExtResource("9_twvfr")
+text = "测试关卡"
+
+[connection signal="button_down" from="Control/Button4" to="." method="_on_button_4_button_down"]
+[connection signal="button_down" from="SettingMenu/Button" to="." method="_on_button_button_down"]
+[connection signal="pressed" from="LevelPanel/Button" to="Control/Button" method="_on_button_pressed"]
+[connection signal="pressed" from="LevelPanel/Button2" to="Control/Button" method="_on_button_2_pressed"]
+[connection signal="pressed" from="LevelPanel/Button3" to="Control/Button" method="_on_button_3_pressed"]
+[connection signal="pressed" from="LevelPanel/Button4" to="Control/Button" method="_on_button_4_pressed"]
+
+[editable path="SettingMenu"]

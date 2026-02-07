@@ -1,0 +1,61 @@
+[gd_scene load_steps=10 format=3 uid="uid://4dvgtl80386f"]
+
+[ext_resource type="PackedScene" uid="uid://debtaix1wqmxs" path="res://Assets/Scenes/Object/Enemy/Enemy.tscn" id="1"]
+[ext_resource type="SpriteFrames" uid="uid://budpvqi1cnxrl" path="res://Assets/Scenes/Object/Enemy/Koopa.tres" id="2"]
+[ext_resource type="Script" uid="uid://b5pad2fyw3cm6" path="res://Assets/Scenes/Object/Enemy/Koopa.gd" id="3"]
+[ext_resource type="Script" uid="uid://bov47u0q6a4fq" path="res://Assets/Scenes/Object/Enemy/Pushbox.gd" id="4"]
+[ext_resource type="AudioStream" uid="uid://bye5yacnkw34c" path="res://Assets/Audio/smbdx_kick.wav" id="5"]
+
+[sub_resource type="RectangleShape2D" id="10"]
+size = Vector2(16, 7.5)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r5lb7"]
+
+[sub_resource type="RectangleShape2D" id="12"]
+size = Vector2(16, 14)
+
+[sub_resource type="RectangleShape2D" id="13"]
+size = Vector2(16, 16)
+
+[node name="Koopa" instance=ExtResource("1")]
+visibility_layer = 4
+texture_filter = 1
+script = ExtResource("3")
+state = 0
+
+[node name="Sprite" parent="." index="0"]
+position = Vector2(0, -12)
+sprite_frames = ExtResource("2")
+animation = &"Move"
+
+[node name="Hitbox#CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, -4.25)
+shape = SubResource("10")
+
+[node name="AnimationPlayer" parent="." index="3"]
+libraries = {
+"": SubResource("AnimationLibrary_r5lb7")
+}
+
+[node name="Pushbox" type="Area2D" parent="." index="5"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pushbox" index="0"]
+position = Vector2(0, -7)
+shape = SubResource("12")
+
+[node name="PushAudio" type="AudioStreamPlayer" parent="." index="6"]
+stream = ExtResource("5")
+
+[node name="Hitbox2" type="Area2D" parent="." index="7"]
+collision_layer = 0
+collision_mask = 512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox2" index="0"]
+position = Vector2(0, -8)
+shape = SubResource("13")
+
+[connection signal="body_entered" from="Pushbox" to="." method="_on_Pushbox_body_entered"]
+[connection signal="area_entered" from="Hitbox2" to="." method="_on_Hitbox2_area_entered"]

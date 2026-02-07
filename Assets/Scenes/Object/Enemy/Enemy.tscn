@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://debtaix1wqmxs"]
+
+[ext_resource type="Script" uid="uid://06tio8b6kvk3" path="res://Assets/Scenes/Object/Enemy/Enemy.gd" id="1"]
+
+[node name="Enemy" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 9
+platform_wall_layers = 1
+script = ExtResource("1")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="OtherHurtBox" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OtherHurtBox"]
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+
+[node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+
+[node name="DeathAudio" type="AudioStreamPlayer2D" parent="."]

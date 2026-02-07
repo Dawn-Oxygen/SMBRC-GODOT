@@ -1,0 +1,79 @@
+[gd_scene load_steps=10 format=3 uid="uid://cpw2en6cyjmyr"]
+
+[ext_resource type="Script" uid="uid://bc68wnktwwrt5" path="res://Assets/Scenes/Object/Enemy/flower.gd" id="1_qaosk"]
+[ext_resource type="Texture2D" uid="uid://c3pb3rl1fopda" path="res://Assets/Image/Enemy/Enemy.png" id="2_hmci1"]
+[ext_resource type="PackedScene" uid="uid://lgrpd2eb32ud" path="res://Assets/Scenes/Boxes/Hurtbox.tscn" id="3_nn51b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8t2ao"]
+atlas = ExtResource("2_hmci1")
+region = Rect2(1, 170, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s0nlk"]
+atlas = ExtResource("2_hmci1")
+region = Rect2(18, 170, 16, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8qjs6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8t2ao")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s0nlk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hr8v2"]
+size = Vector2(14, 22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3aimd"]
+size = Vector2(14, 22)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4p2jf"]
+radius = 40.05
+
+[node name="Flower" type="Node2D"]
+script = ExtResource("1_qaosk")
+
+[node name="PositionA" type="Node2D" parent="."]
+position = Vector2(0, -22)
+
+[node name="PositionB" type="Node2D" parent="."]
+
+[node name="Flower" type="Area2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -2)
+collision_layer = 32
+collision_mask = 0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Flower"]
+sprite_frames = SubResource("SpriteFrames_8qjs6")
+autoplay = "default"
+frame_progress = 0.180474
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Flower"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_hr8v2")
+
+[node name="Hurtbox" parent="Flower" instance=ExtResource("3_nn51b")]
+collision_mask = 512
+
+[node name="CollisionShape2D" parent="Flower/Hurtbox" index="0"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_3aimd")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_4p2jf")
+
+[connection signal="area_entered" from="Flower" to="Flower" method="_on_Hitbox_area_entered" flags=18]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+
+[editable path="Flower/Hurtbox"]

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cie3ssrty713j"]
+
+[ext_resource type="TileSet" path="res://Assets/Scenes/Tilemaps/TileBackGround.tres" id="1"]
+
+[node name="TileBackGround" type="TileMap"]
+tile_set = ExtResource("1")
+cell_size = Vector2(16, 16)
+format = 1

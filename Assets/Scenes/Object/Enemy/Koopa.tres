@@ -1,0 +1,70 @@
+[gd_resource type="SpriteFrames" load_steps=9 format=3 uid="uid://budpvqi1cnxrl"]
+
+[ext_resource type="Texture2D" uid="uid://c3pb3rl1fopda" path="res://Assets/Image/Enemy/Enemy.png" id="1"]
+
+[sub_resource type="AtlasTexture" id="1"]
+atlas = ExtResource("1")
+region = Rect2(1, 42, 17, 24)
+
+[sub_resource type="AtlasTexture" id="2"]
+atlas = ExtResource("1")
+region = Rect2(18, 42, 17, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ukj3g"]
+atlas = ExtResource("1")
+region = Rect2(195, 51, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rhf5i"]
+atlas = ExtResource("1")
+region = Rect2(212, 51, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hg5w1"]
+atlas = ExtResource("1")
+region = Rect2(229, 51, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ilt4x"]
+atlas = ExtResource("1")
+region = Rect2(246, 51, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y0oqd"]
+atlas = ExtResource("1")
+region = Rect2(195, 51, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("1")
+}, {
+"duration": 1.0,
+"texture": SubResource("2")
+}],
+"loop": true,
+"name": &"Move",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ukj3g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rhf5i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hg5w1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ilt4x")
+}],
+"loop": true,
+"name": &"Roll",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y0oqd")
+}],
+"loop": true,
+"name": &"Shrink",
+"speed": 5.0
+}]

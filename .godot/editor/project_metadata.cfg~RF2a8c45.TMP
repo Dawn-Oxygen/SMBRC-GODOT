@@ -1,0 +1,37 @@
+[editor_metadata]
+
+executable_path="D:/godot4.0/Godot_v4.0-stable_win64.exe"
+tile_source_sort=0
+use_advanced_connections=false
+
+[debug_options]
+
+run_live_debug=true
+run_reload_scripts=true
+run_debug_collisions=false
+
+[recent_files]
+
+scenes=["res://Assets/Scenes/Object/Enemy/Goomba.tscn", "res://Assets/Scenes/Object/Player/ice_block.tscn", "res://Assets/Scenes/Object/Player/Skill.tscn", "res://Assets/Scenes/Object/Player/FireBall.tscn", "res://Assets/Scenes/Object/Player/ice_frie_ball.tscn", "res://Assets/Scenes/Object/Player/Player.tscn", "res://Assets/Scenes/Object/Prop/StateProp.tscn", "res://Assets/Scenes/Game/Levels/World1/1-1.tscn", "res://Assets/Scenes/Object/Player/PlayerDeath.tscn", "res://Assets/Scenes/Object/WhatBlock/Block.tscn"]
+scripts=["Vector2", "ProjectSettings", "CharacterBody2D", "Camera2D", "res://Assets/Scenes/Object/Player/ice_block.gd", "res://Assets/Scenes/Object/Player/ice_frie_ball.gd", "res://Assets/Scenes/Object/Player/PlayerDeath.gd", "res://Assets/Scenes/Game/Globals.gd", "res://Assets/Scenes/Object/BackGround/clouds.gd", "res://Assets/Scenes/Game/Levels/World1/CameraBox.gd"]
+
+[dialog_bounds]
+
+project_settings=Rect2(345, 121, 675, 525)
+search_help=Rect2(571, 190, 683, 384)
+
+[project_settings]
+
+advanced_mode=true
+
+[script_setup]
+
+last_selected_language="GDScript"
+
+[color_picker]
+
+recent_presets=PackedColorArray(2.5028e-06, 0.570901, 0.656441, 0.960784, 4.90934e-06, 0.584989, 0.734966, 0.670588, 1, 1, 0, 1, 0, 0.584314, 0.733333, 1, 0.448816, 0.853228, 1, 1, 0, 1, 1, 1, 0.660048, 0.927345, 1, 1, 0, 0.833037, 0.979205, 1, 0, 0.831373, 0.980392, 0.654902)
+
+[scripts_panel]
+
+show_scripts_panel=true

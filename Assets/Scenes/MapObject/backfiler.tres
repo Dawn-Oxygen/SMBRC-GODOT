@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dxbcengkaduuf"]
+
+[ext_resource type="Shader" uid="uid://cqd0eb4t06tr8" path="res://Assets/Scenes/Game/Levels/World1/1-1.gdshader" id="1_l6oim"]
+
+[resource]
+shader = ExtResource("1_l6oim")
+shader_parameter/f = 1.046

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bown2rotx5iyo"
+path="res://.godot/imported/mid-air spin.mp3-8c0b50654ece829e44f2fceb288f31ab.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/mid-air spin.mp3"
+dest_files=["res://.godot/imported/mid-air spin.mp3-8c0b50654ece829e44f2fceb288f31ab.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
